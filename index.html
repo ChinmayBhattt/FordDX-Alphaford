@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaFold2 - ProteinAI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="wave"></div>
+        <div class="blobs">
+            <div class="blob blob1"></div>
+            <div class="blob blob2"></div>
+            <div class="blob blob3"></div>
+            <div class="sparkle sparkle1"></div>
+            <div class="sparkle sparkle2"></div>
+            <div class="sparkle sparkle3"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="protein-icon">🧬</div>
+                ProteinAI
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#predictor">Predictor</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:1.2rem;margin-left:2rem;">
+                <button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle-btn" title="Toggle dark mode">
+                    <span id="theme-icon">
+                        <!-- Toggle icon -->
+                        <svg id="toggle-svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="10" width="28" height="12" rx="6" fill="#667eea"/>
+                            <circle id="toggle-knob" cx="10" cy="16" r="6" fill="#fff"/>
+                        </svg>
+                    </span>
+                </button>
+                <div id="user-auth-area" style="display:flex;align-items:center;gap:1rem;">
+                    <a id="auth-link" href="/backend/auth.html" class="auth-navbar-btn" style="padding:.5rem 1.2rem;font-size:1rem;min-width:90px;">Sign In / Sign Up</a>
+                    <img id="user-photo" src="" alt="Profile" style="display:none;width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid #667eea;">
+                    <button id="logout-btn" style="display:none;background:none;border:none;color:#2c5aa0;font-weight:600;cursor:pointer;">Logout</button>
+                </div>
+            </div>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    
+
+    <!-- Header Section -->
+    <section id="home" class="header">
+        <h1>Protein Structure & Disease Predictor</h1>
+        <p>Powered by AlphaFold2 & ColabFold - Advanced AI for Protein Analysis</p>
+    </section>
+
+        <!-- Main Area -->
+    <section id="predictor" class="main-area">
+        <div class="input-container">
+            <label class="input-label">Enter Protein Sequence</label>
+            <textarea id="query_sequence" placeholder="e.g. MKTAYIAKQRQISFVKSHFSRQ..."></textarea>
+        </div>
+        <button id="predictBtn" class="predict-btn">Predict Structure</button>
+        <div class="loading">
+            <div class="loading-spinner"></div>
+            <p>Processing your sequence...</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2>Key Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔬</div>
+                <h3>3D Structure Prediction</h3>
+                <p>Advanced algorithms predict protein 3D structures with high accuracy using state-of-the-art deep learning models.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧬</div>
+                <h3>Disease Association</h3>
+                <p>Analyze protein sequences to identify potential disease-causing mutations and pathogenic variants.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Fast Processing</h3>
+                <p>Get results in minutes, not hours. Our optimized pipeline ensures rapid analysis without compromising accuracy.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Detailed Reports</h3>
+                <p>Comprehensive analysis reports with confidence scores, structural insights, and functional predictions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure & Private</h3>
+                <p>Your data is protected with enterprise-grade security. All sequences are processed securely and confidentially.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>Web-Based Interface</h3>
+                <p>No software installation required. Access powerful protein analysis tools directly from your browser.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About ProteinAI</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>ProteinAI is an advanced web-based platform that leverages the power of AlphaFold2 and ColabFold to predict protein structures and analyze disease associations. Our mission is to provide researchers and healthcare professionals with cutting-edge tools to accelerate drug discovery and improve patient outcomes.</p>
+                <p>With ProteinAI, you can easily predict the 3D structure of proteins, identify potential disease-causing mutations, and obtain detailed analysis reports. Our platform is designed to be user-friendly, secure, and highly efficient.</p>
+            </div>
+            <div class="about-image">
+                <div class="protein-structure">
+                    <!-- Animated protein structure or relevant image -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Your Email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="4" placeholder="Your Message"></textarea>
+            </div>
+            <button class="predict-btn">Send Message</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">API Reference</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Community Forum</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 ProteinAI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" onclick="scrollToTop()">
+        ↑
+    </button>
+
+<script src="script.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js" type="module"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js" type="module"></script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyDzUBGTtpN7ZCnOijcIW8aJFO-yIQPwESA",
+  authDomain: "alphaford---proteinai.firebaseapp.com",
+  projectId: "alphaford---proteinai",
+  storageBucket: "alphaford---proteinai.firebasestorage.app",
+  messagingSenderId: "872727300078",
+  appId: "1:872727300078:web:ef2e90d5f76376634fb0ff",
+  measurementId: "G-WX11PKTVYC"
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const authLink = document.getElementById('auth-link');
+const userPhoto = document.getElementById('user-photo');
+const logoutBtn = document.getElementById('logout-btn');
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    authLink.style.display = 'none';
+    userPhoto.style.display = 'block';
+    logoutBtn.style.display = 'inline-block';
+    userPhoto.src = user.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.displayName||'User')}`;
+  } else {
+    authLink.style.display = 'inline-block';
+    userPhoto.style.display = 'none';
+    logoutBtn.style.display = 'none';
+    userPhoto.src = '';
+  }
+});
+logoutBtn.addEventListener('click', () => {
+  signOut(auth);
+});
+</script>
+</body>
+</html>

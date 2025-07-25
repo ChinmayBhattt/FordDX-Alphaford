@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In / Sign Up - ProteinAI</title>
+  <link rel="stylesheet" href="auth.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg-animated">
+    <ul class="circles">
+      <li></li><li></li><li></li><li></li><li></li>
+      <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+  </div>
+  <div class="auth-card glass">
+    <div class="logo-anim">
+      <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="27" cy="27" r="25" stroke="#764ba2" stroke-width="4" fill="#fff"/>
+        <path d="M18 27C18 22.0294 22.0294 18 27 18C31.9706 18 36 22.0294 36 27C36 31.9706 31.9706 36 27 36C22.0294 36 18 31.9706 18 27Z" fill="#764ba2" fill-opacity="0.15"/>
+      </svg>
+    </div>
+    <h2>ProteinAI Account</h2>
+    <div class="auth-tabs">
+      <button class="auth-tab active" onclick="showAuthTab('login')">Sign In</button>
+      <button class="auth-tab" onclick="showAuthTab('signup')">Sign Up</button>
+    </div>
+    <form id="loginForm" class="auth-form active">
+      <div class="form-group">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" required>
+      </div>
+      <button type="submit" class="auth-btn">Sign In</button>
+      <div class="auth-error" id="loginError"></div>
+    </form>
+    <form id="signupForm" class="auth-form">
+      <div class="form-group">
+        <label for="signupName">Full Name</label>
+        <input type="text" id="signupName" required>
+      </div>
+      <div class="form-group">
+        <label for="signupEmail">Email</label>
+        <input type="email" id="signupEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" required>
+      </div>
+      <button type="submit" class="auth-btn">Sign Up</button>
+      <div class="auth-error" id="signupError"></div>
+    </form>
+  </div>
+  <script type="module" src="auth.js"></script>
+  <script>
+    function showAuthTab(tab) {
+      const loginTab = document.querySelectorAll('.auth-tab')[0];
+      const signupTab = document.querySelectorAll('.auth-tab')[1];
+      const loginForm = document.getElementById('loginForm');
+      const signupForm = document.getElementById('signupForm');
+      if(tab === 'login') {
+        loginTab.classList.add('active');
+        signupTab.classList.remove('active');
+        loginForm.classList.add('active');
+        signupForm.classList.remove('active');
+      } else {
+        signupTab.classList.add('active');
+        loginTab.classList.remove('active');
+        signupForm.classList.add('active');
+        loginForm.classList.remove('active');
+      }
+    }
+  </script>
+</body>
+</html>
